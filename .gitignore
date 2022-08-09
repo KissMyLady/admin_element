@@ -8,8 +8,7 @@ noSave/
 
 ## 敏感配置文件
 application-dev.yml
-rsa.pri
-rsa.pub
+keys/
 
 ### STS ###
 .apt_generated
