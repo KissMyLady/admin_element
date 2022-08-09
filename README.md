@@ -7,27 +7,27 @@
 
 ## DEMO
 [源项目参考 测试地址](http://g.heeexy.com)
-admin/123456 管理员身份登录,可以新增用户,角色.
+admin/123456 管理员身份登录,可以新增用户,角色.     
 
-角色可以分配权限
+角色可以分配权限     
 
-控制菜单是否显示,新增/删除按钮是否显示
+控制菜单是否显示,新增/删除按钮是否显示     
 
 
 # 预览图
 
 图片1      
-<img src="https://blog.mylady.top/static/books/2022/8/2022-08-09_213343.png" style="width:48%;" />     
+<img src="https://blog.mylady.top/static/books/2022/8/2022-08-09_213343.png" style="width:88%;" />     
 图片2       
-<img src="https://blog.mylady.top/static/books/2022/8/2022-08-09_213441.png" style="width:48%;" />     
+<img src="https://blog.mylady.top/static/books/2022/8/2022-08-09_213441.png" style="width:88%;" />     
 图片3          
-<img src="https://blog.mylady.top/static/books/2022/8/2022-08-09_213454.png" style="width:48%;" />
+<img src="https://blog.mylady.top/static/books/2022/8/2022-08-09_213454.png" style="width:88%;" />
 
 # 优化
-1, 站长[巨人-Heeexy](https://github.com/Heeexy/SpringBoot-Shiro-Vue)的肩膀上进行优化开发.
-1. 前端Vue框架使用 [vue-element-admin](https://panjiachen.github.io/vue-element-admin) 进行二次开发. [使用文档: https://panjiachen.github.io/vue-element-admin-site/zh/](https://panjiachen.github.io/vue-element-admin-site/zh/)    
-2. 使用token作为登录凭证, 不使用session,避免跨域问题
-3. 使用自定义注解+aop 替代shiro的功能,简化了配置，增强了可拓展性
+1, 站在巨人[Heeexy](https://github.com/Heeexy/SpringBoot-Shiro-Vue) 的肩膀上进行优化开发.    
+1, 前端Vue框架使用 [vue-element-admin](https://panjiachen.github.io/vue-element-admin) 进行二次开发. [使用文档: https://panjiachen.github.io/vue-element-admin-site/zh/](https://panjiachen.github.io/vue-element-admin-site/zh/)    
+2, 使用token作为登录凭证, 不使用session,避免跨域问题         
+3, 使用自定义注解+aop 替代shiro的功能,简化了配置，增强了可拓展性    
 
 # 设计思路
 
@@ -130,4 +130,4 @@ npm run dev
 
 
 # 鸣谢
-[GitHub: Heeexy](https://github.com/Heeexy/SpringBoot-Shiro-Vue)
+站在巨人[Heeexy](https://github.com/Heeexy/SpringBoot-Shiro-Vue) 的肩膀上进行优化开发.    
