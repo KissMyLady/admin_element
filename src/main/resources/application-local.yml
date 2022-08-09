@@ -1,0 +1,84 @@
+
+spring:
+  redis:
+    # 使用本地redis, 1号数据库
+#    database: 1
+#    host: 127.0.0.1
+#    port: 6379
+#    timeout: 5000
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/local_database?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+      username: root
+      password: yourPwd
+
+# 邮件服务提供
+email:
+  fromAddress: post@qq.cn
+  fromPassword: a@
+  fromHostName: qq.com
+  sslOnConnect: true
+  sslSmtpPort: 443
+
+# 短信服务提供
+sms:
+  url: https://xxx/send
+  appid: yyy
+  appkey: xxx
+
+# IP 本地解析
+ip:
+  local-parsing: true
+
+#jwt
+jwt:
+  header: Authorization
+  # 令牌前缀
+  token-start-with: Bearer
+  # 必须使用最少88位的Base64对该令牌进行编码
+  base64-secret: zmQ0ZGI5NjQ0MDQwY2I4MjMxY2Y3ZmI3MjdhN2ZmMjNhODViOTg1ZGE0NTBjMGM4NDA5NzYxMjdjOWMwYWRmZTBlZjlhNGY3ZTg4Y2U3YTE1ODVkZDU5Y2Y3OGYwZWE1NzUzNWQ2YjFjZDc0NGMxZWU2MmQ3MjY1NzJmNTE0MzI=
+  # 令牌过期时间 此处单位/毫秒, 默认4小时, 可在此网站生成 https://www.convertworld.com/zh-hans/time/milliseconds.html
+  token-validity-in-seconds: 14400000
+  # 在线用户key
+  online-key: online-token-
+  # 验证码
+  code-key: code-key-
+  # token 续期检查时间范围（默认30分钟, 单位毫秒）, 在token即将过期的一段时间内用户操作了, 则给用户的token续期
+  detect: 1800000
+  # 续期时间范围, 默认1小时, 单位毫秒
+  renew: 3600000
+
+
+# 权限校验, URL路径白名单
+ignored:
+  urls:
+    - /test/**
+    - /login/**
+    - /logout/**
+    # - /admin/**
+    - /error/**
+    - /css/**
+    - /font/**
+    - /js/**
+    #- /ids/**
+
+
+logging:
+  config: classpath:logback.xml
+
+mybatis:
+  mapperLocations: classpath:/mapper/*.xml
+
+mybatis-plus:
+  global-config:
+    # 是否控制台 print mybatis-plus 的 LOGO
+    banner: false
+  # configuration:
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  configuration:
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  mapper-locations:
+    - classpath*:top/mylady/api/module/**/mapper/xml/*.xml
+  # 实体扫描, 多个package 继续往后跟
+  typeAliasesPackage: top.mylady.api.module.**.entity
+  # 实体扫描  BaseEntity 的子类对象
+  # typeAliasesSuperType: top.mylady.common.base.entity.BaseEntity

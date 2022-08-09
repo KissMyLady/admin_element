@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.mylady.api.module.marry.mapper.MarryAppUserCommentMapper">
+
+    <select id="queryCommentList" resultType="java.util.Map">
+        select id,
+               user_comment,
+               user_avatar,
+               user_nick_name,
+               date_format(create_time, '%Y %m-%d %H:%I:%S') c_data
+        from marry_app_user_comment
+        where is_delete = 0
+        order by create_time desc
+        limit ${page}, ${pageSize}
+    </select>
+    
+    <select id="queryCommentLength" resultType="int">
+        select count(1) from marry_app_user_comment
+        where is_delete = 0
+    </select>
+    
+    
+    <select id="queryCommentById" resultType="java.util.Map">
+        select id,
+               user_comment,
+               user_avatar,
+               user_nick_name
+        from marry_app_user_comment
+        where id = #{id}
+          and is_delete = 0
+    </select>
+    
+    <select id="last_10_user" resultType="java.util.Map">
+        select * from (
+                          select user_nick_name, create_time, user_avatar
+                          from (
+                                   select user_nick_name, user_avatar, create_time
+                                       create_time, row_number() over ( partition by user_nick_name order by create_time desc) rn
+                                   from marry_app_user_comment
+                                   where is_delete = 0
+                               )   name where rn = 1
+                          order by create_time desc
+      ) as unnctua limit 0, 10
+    </select>
+    
+</mapper>

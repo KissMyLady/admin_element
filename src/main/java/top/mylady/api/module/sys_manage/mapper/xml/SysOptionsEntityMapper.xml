@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.mylady.api.module.sys_manage.mapper.SysOptionsMapper">
+
+    
+    <select id="queryMapPageDesc" resultType="java.util.Map">
+        select a.op_value v_1,
+               b.op_value v_2,
+               c.op_value v_3,
+               d.op_value v_4,
+               e.op_value v_5,
+               f.op_value v_6
+        from (
+                  (select * from sys_options where op_key = 'marry_app_guider_title_big') a,
+                  (select * from sys_options where op_key = 'marry_app_guider_title_1') b,
+                  (select * from sys_options where op_key = 'marry_app_guider_title_2') c,
+                  (select * from sys_options where op_key = 'marry_app_guider_title_3') d,
+                  (select * from sys_options where op_key = 'marry_app_guider_title_4') e,
+                  (select * from sys_options where op_key = 'marry_app_guider_bg_img') f
+                 )
+    </select>
+    
+</mapper>

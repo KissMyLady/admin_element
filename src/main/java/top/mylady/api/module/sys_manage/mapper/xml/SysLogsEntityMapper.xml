@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.mylady.api.module.sys_manage.mapper.SysLogsMapper">
+    
+    
+    <delete id="deleteLogs">
+        delete
+        from sys_logs
+        where sys_logs.create_time &lt; (select DATE_SUB(CURDATE(), INTERVAL ${days} DAY) days from dual)
+    </delete>
+    
+    <select id="queryLogs" parameterType="top.mylady.api.dto.sysDto.SysLogDto"
+            resultType="java.util.Map">
+        select * from sys_logs
+    
+        <where>
+            <if test="key != null and key != '' ">
+                sys_logs.log_type        like '%${key}%'
+                or sys_logs.log_title    like '%${key}%'
+                or sys_logs.req_address  like '%${key}%'
+                or sys_logs.req_system   like '%${key}%'
+                or sys_logs.create_by    like '%${key}%'
+            </if>
+
+            <if test="logLv != null and logLv != '' ">
+                and sys_logs.log_level = '${logLv}'
+            </if>
+        </where>
+        
+        order by create_time desc
+        limit ${page}, ${pageSize}
+    </select>
+    
+    <select id="queryTotal" resultType="int">
+        select count(1)
+        from sys_logs
+    </select>
+
+</mapper>

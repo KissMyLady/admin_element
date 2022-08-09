@@ -1,0 +1,46 @@
+.DS_Store
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+noSave/
+
+## 敏感配置文件
+application-dev.yml
+rsa.pri
+rsa.pub
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+zblog_db.sql
+*.log
+logs/
+*.json
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+/git-pull.sh
+/git-push.sh
+/app-log/
+/app-opsli-log/
